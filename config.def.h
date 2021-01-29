@@ -7,7 +7,7 @@ static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%"
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 35;        /* gaps between windows */
+static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -71,9 +71,9 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_F11, spawn, {.v = downvol } },
-	{ MODKEY,                       XK_F9,  spawn, {.v = mutevol } },
-	{ MODKEY,                       XK_F12, spawn, {.v = upvol   } },
+	{ MODKEY,                       XK_F11,	   spawn, 	   {.v = downvol } },
+	{ MODKEY,                       XK_F9,     spawn, 	   {.v = mutevol } },
+	{ MODKEY,                       XK_F12,    spawn, 	   {.v = upvol   } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
