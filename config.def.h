@@ -7,7 +7,7 @@ static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%"
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 15;        /* gaps between windows */
+static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -15,8 +15,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Roboto:style=Regular:size=12:antialias=true:autohint=true", "FontAwesome:style=Regular:size=12:antialias=true:autohint=true" };
-static const char dmenufont[]       = "Roboto:style=Regular:size=12:antialias=true:autohint=true";
+static const char *fonts[]          = { "Monospace:size=12:antialias=true:autohint=true", "FontAwesome:style=Regular:size=12:antialias=true:autohint=true" };
+static const char dmenufont[]       = "Ubuntu Mono:style=Regular:size=12:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -29,7 +29,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII" };
+static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,7 +38,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       0,      	    0,           -1 },
 };
 
 /* layout(s) */
@@ -75,7 +75,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F9,     spawn, 	   {.v = mutevol } },
 	{ MODKEY,                       XK_F12,    spawn, 	   {.v = upvol   } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
@@ -85,9 +85,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,	                XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
